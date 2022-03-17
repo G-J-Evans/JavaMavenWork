@@ -16,8 +16,8 @@ public class PersonController implements CrudController<Person> {
 		this.personDAO = personDAO;
 	}
 	
-	public void controllerTitleMessage() {
-		System.out.println("--- People menu ---");
+	public String controllerTitleString() {
+		return "People Controller";
 	}
 	
 	public int create() {

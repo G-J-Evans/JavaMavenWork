@@ -10,7 +10,7 @@ public class Menu {
 	public Menu() {}
 
 	public void personControllerRunMenu(CrudController<?> crudController) {
-		crudController.controllerTitleMessage();
+		menuTitleMessage(crudController);
 
 		boolean flag = true;
 		while (flag) {
@@ -21,7 +21,9 @@ public class Menu {
 		scanner.close();
 	}
 
-	
+	private void menuTitleMessage(CrudController<?> crudController) {
+		System.out.println("--- " + crudController.controllerTitleString() + " ---");
+	}
 	
 	private boolean menuCRUDChoice(CrudController<?> crudController) {
 		System.out.println();
