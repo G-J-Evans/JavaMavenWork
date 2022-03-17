@@ -3,22 +3,18 @@ package com.qa.jdbc;
 import java.util.Scanner;
 
 import com.qa.jdbc.controller.CrudController;
-import com.qa.jdbc.controller.PersonController;
-import com.qa.jdbc.daos.Dao;
-import com.qa.jdbc.daos.PersonDAO;
 
 public class Menu {
 	private Scanner scanner = new Scanner(System.in);
-	private CrudController crudController = new CrudController(new PersonDAO());
 
 	public Menu() {}
 
-	public void personControllerRunMenu() {
+	public void personControllerRunMenu(CrudController<?> crudController) {
 		crudController.controllerTitleMessage();
 
 		boolean flag = true;
 		while (flag) {
-			menuPersonCRUDChoice();
+			menuCRUDChoice(crudController);
 
 			flag = menuEndOrGoAgain();
 		}
@@ -27,21 +23,21 @@ public class Menu {
 
 	
 	
-	private boolean menuPersonCRUDChoice() {
-		boolean flag = false;
-
+	private boolean menuCRUDChoice(CrudController<?> crudController) {
 		System.out.println();
 		System.out.println("What opperation would you like to do? CREATE/READ/UPDATE/DELETE");
-
+		
+		boolean flag = true;
+		while (flag) {
+			
 		String opperation = scanner.nextLine().toLowerCase();
-
-		 while (flag) {
+	
 			if (opperation.equals("create")) {
 				crudController.create();
 				return true;
 
 			} else if (opperation.equals("read")) {
-				menuReadIDOrAll();
+				menuReadIDOrAll(crudController);
 				return true;
 
 			} else if (opperation.equals("update")) {
@@ -63,7 +59,7 @@ public class Menu {
 		return false;
 	}
 
-	private void menuReadIDOrAll() {
+	private void menuReadIDOrAll(CrudController<?> crudController) {
 		boolean flag = false;
 
 		do {

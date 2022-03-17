@@ -1,5 +1,8 @@
 package com.qa.jdbc;
 
+import com.qa.jdbc.controller.PersonController;
+import com.qa.jdbc.daos.PersonDAO;
+
 public class Runner {
 
 	public static void main(String[] args) {
@@ -8,6 +11,6 @@ public class Runner {
 //		TestConnection tc = new TestConnection();
 //		tc.testConnection();
 		
-		new Menu().personControllerRunMenu();
+		new Menu().personControllerRunMenu(new PersonController(new PersonDAO()));
 	}
 }

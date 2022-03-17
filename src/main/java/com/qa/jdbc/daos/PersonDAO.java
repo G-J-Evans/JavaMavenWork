@@ -69,7 +69,7 @@ public class PersonDAO implements Dao<Person>{
 		} catch (SQLException e) {
 			e.getStackTrace();
 		}
-		System.out.println("Your person might not exsist!!!");
+		System.out.println("Your ID does not exsist!!!");
 		return null;
 	}
 
