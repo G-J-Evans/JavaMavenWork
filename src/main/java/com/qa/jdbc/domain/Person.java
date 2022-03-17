@@ -10,7 +10,7 @@ public class Person {
 	// Default constructor
 	public Person() {}
 	
-	// All args constructor - used for reading (SELECTS)
+	// All args constructor - used for reading (SELECT)
 	public Person(int id, String firstName, String lastName, int age) {
 		this.id = id;
 		this.firstName = firstName;
@@ -18,7 +18,7 @@ public class Person {
 		this.age = age;
 	}
 	
-	// Used for creating (INSERTS)
+	// Used for creating (INSERT)
 	public Person(String firstName, String lastName, int age) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -59,7 +59,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [id: " + id + ", Name: " + firstName + lastName + ", age: " + age + "]";
+		return "Person [id: " + id + ", Name: " + firstName + " " + lastName + ", age: " + age + "]";
 	}
 
 }
